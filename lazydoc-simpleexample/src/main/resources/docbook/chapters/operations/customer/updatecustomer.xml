@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8"?><sect2 xmlns="http://docbook.org/ns/docbook" xml:lang="en" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:id="updatecustomer">
+    <title>This operation updates a specific customer</title>
+    <para/>
+    <simplesect>
+        <title>Structure of the request</title>
+        <para>Schematic representation of the URI with its parameters:</para>
+        <programlisting>PUT /customers/{customerId}</programlisting>
+        <para>The following parameters are expected:</para>
+        <table>
+            <title>Description of the call parameters</title>
+            <?dbfo keep-together="auto" ?>
+            <tgroup cols="3">
+                <colspec colname="parameter" colwidth="1*"/>
+                <colspec colname="type" colwidth="1*"/>
+                <colspec colname="description" colwidth="3*"/>
+                <thead>
+                    <row>
+                        <entry>Parameter</entry>
+                        <entry>Type</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>customerId</entry>
+                        <entry>long</entry>
+                        <entry>This specifies the id of the customer to be returned</entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+    </simplesect>
+    <simplesect>
+        <table>
+            <title>Structure of the request body</title>
+            <?dbfo keep-together="auto" ?>
+            <tgroup cols="3">
+                <colspec colname="type" colwidth="2*"/>
+                <colspec colname="cardinality" colwidth="1*"/>
+                <colspec colname="description" colwidth="3*"/>
+                <thead>
+                    <row>
+                        <entry>Type</entry>
+                        <entry>Cardinality</entry>
+                        <entry>Description</entry>
+                    </row>
+                </thead>
+                <tbody>
+                    <row>
+                        <entry>Customer</entry>
+                        <entry>1</entry>
+                        <entry>The data of the customer to be updated</entry>
+                    </row>
+                </tbody>
+            </tgroup>
+        </table>
+        <para>
+            <table>
+                <title>Structure of the Customer element</title>
+                <?dbfo keep-together="auto" ?>
+                <tgroup cols="4">
+                    <colspec colname="property" colwidth="2*"/>
+                    <colspec colname="type" colwidth="1*"/>
+                    <colspec colname="cardinality" colwidth="1*"/>
+                    <colspec colname="description" colwidth="3*"/>
+                    <thead>
+                        <row>
+                            <entry>Property</entry>
+                            <entry>Type</entry>
+                            <entry>Cardinality</entry>
+                            <entry>Description</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>city</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>customerId</entry>
+                            <entry>long</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>customerId</entry>
+                        </row>
+                        <row>
+                            <entry>firstname</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>lastname</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>street</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>zipCode</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
+        <para>
+            <example>
+                <title>Sample request</title>
+                <programlisting language="json">{
+  "firstname":"Maxi",
+  "lastname":"Müller"
+}</programlisting>
+            </example>
+        </para>
+    </simplesect>
+    <simplesect>
+        <title>Structure of the response</title>
+        <para>If successful, the call returns HTTP status 200 OK</para>
+        <para>The response body contains the following data:</para>
+        <para>
+            <table>
+                <title>Structure of the Customer element</title>
+                <?dbfo keep-together="auto" ?>
+                <tgroup cols="4">
+                    <colspec colname="property" colwidth="2*"/>
+                    <colspec colname="type" colwidth="1*"/>
+                    <colspec colname="cardinality" colwidth="1*"/>
+                    <colspec colname="description" colwidth="3*"/>
+                    <thead>
+                        <row>
+                            <entry>Property</entry>
+                            <entry>Type</entry>
+                            <entry>Cardinality</entry>
+                            <entry>Description</entry>
+                        </row>
+                    </thead>
+                    <tbody>
+                        <row>
+                            <entry>city</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>customerId</entry>
+                            <entry>long</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>customerId</entry>
+                        </row>
+                        <row>
+                            <entry>firstname</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>lastname</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>street</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                        <row>
+                            <entry>zipCode</entry>
+                            <entry>String</entry>
+                            <entry>0 .. 1</entry>
+                            <entry>lastname</entry>
+                        </row>
+                    </tbody>
+                </tgroup>
+            </table>
+        </para>
+    </simplesect>
+</sect2>
