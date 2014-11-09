@@ -1,4 +1,4 @@
-package org.lazydoc.example.extended.entity;
+package org.lazydoc.example.simple.entity;
 
 import org.lazydoc.annotation.PropertyDescription;
 import org.lazydoc.annotation.Sample;

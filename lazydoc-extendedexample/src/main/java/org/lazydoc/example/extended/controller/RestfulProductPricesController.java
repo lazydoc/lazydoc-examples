@@ -3,7 +3,6 @@ package org.lazydoc.example.extended.controller;
 import com.google.common.collect.ImmutableList;
 import org.lazydoc.annotation.*;
 import org.lazydoc.example.extended.controller.exception.ProductNotFoundException;
-import org.lazydoc.example.extended.entity.Product;
 import org.lazydoc.example.extended.entity.ProductPrice;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;

@@ -1,6 +1,6 @@
-package org.lazydoc.example.extended.config;
+package org.lazydoc.example.simple.config;
 
-import org.lazydoc.example.extended.ExampleApplication;
+import org.lazydoc.example.simple.SimpleExampleApplication;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;
@@ -18,7 +18,7 @@ public class WebInitializer implements WebApplicationInitializer {
 
 		// Create the 'root' Spring application context
 		AnnotationConfigWebApplicationContext rootContext = new AnnotationConfigWebApplicationContext();
-		rootContext.register(ExampleApplication.class);
+		rootContext.register(SimpleExampleApplication.class);
 
 		// Manage the lifecycle of the root application context
 		container.addListener(new ContextLoaderListener(rootContext));

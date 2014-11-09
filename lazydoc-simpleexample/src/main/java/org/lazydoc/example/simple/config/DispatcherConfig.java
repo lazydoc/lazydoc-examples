@@ -1,4 +1,4 @@
-package org.lazydoc.example.extended.config;
+package org.lazydoc.example.simple.config;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.google.common.collect.ImmutableList;
@@ -14,7 +14,6 @@ import java.util.List;
 
 @Configuration
 @EnableWebMvc
-@ComponentScan(basePackages = "org.lazydoc.example.extended")
 public class DispatcherConfig extends WebMvcConfigurerAdapter {
 
 	@Override

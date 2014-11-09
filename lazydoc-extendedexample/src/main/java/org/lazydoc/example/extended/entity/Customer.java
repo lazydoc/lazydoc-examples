@@ -3,10 +3,6 @@ package org.lazydoc.example.extended.entity;
 import org.lazydoc.annotation.PropertyDescription;
 import org.lazydoc.annotation.Sample;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-
 public class Customer {
 
     @PropertyDescription(description = "The unique identifier of the customer")

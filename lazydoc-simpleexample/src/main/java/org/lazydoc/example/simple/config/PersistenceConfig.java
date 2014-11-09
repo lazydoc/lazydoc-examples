@@ -1,5 +1,6 @@
-package org.lazydoc.example.extended.config;
+package org.lazydoc.example.simple.config;
 
+import org.lazydoc.example.simple.SimpleExampleApplication;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,8 +25,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories("org.lazydoc.example.extended")
-@ComponentScan({"org.lazydoc.example.extended"})
+@EnableJpaRepositories(SimpleExampleApplication.PACKAGE_NAME)
+@ComponentScan({SimpleExampleApplication.PACKAGE_NAME})
 public class PersistenceConfig {
 
 	private static Logger log = LoggerFactory.getLogger(PersistenceConfig.class);
@@ -37,7 +38,7 @@ public class PersistenceConfig {
 	public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
 		LocalContainerEntityManagerFactoryBean em = new LocalContainerEntityManagerFactoryBean();
 		em.setDataSource(dataSource());
-		em.setPackagesToScan(new String[] { "org.lazydoc.example.spring" });
+		em.setPackagesToScan(new String[] { SimpleExampleApplication.PACKAGE_NAME });
 
 		JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
 		em.setJpaVendorAdapter(vendorAdapter);

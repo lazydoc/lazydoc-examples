@@ -1,11 +1,10 @@
-package org.lazydoc.example.extended.controller;
+package org.lazydoc.example.simple.controller;
 
 import org.lazydoc.annotation.DomainDescription;
 import org.lazydoc.annotation.OperationDescription;
 import org.lazydoc.annotation.Parameter;
 import org.lazydoc.annotation.ParameterDescription;
-import org.lazydoc.example.extended.entity.Customer;
-import org.springframework.web.bind.annotation.*;
+import org.lazydoc.example.simple.entity.Customer;
 
 import java.util.List;
 

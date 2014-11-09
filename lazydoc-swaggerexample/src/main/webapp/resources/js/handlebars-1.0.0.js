@@ -694,7 +694,7 @@ Handlebars.AST.MustacheNode = function(rawParams, hash, unescaped) {
   var params = this.params = rawParams.slice(1);
 
   // a mustache is an eligible helper if:
-  // * its id is simple (a single part, not `this` or `..`)
+  // * its id is extended (a single part, not `this` or `..`)
   var eligibleHelper = this.eligibleHelper = id.isSimple;
 
   // a mustache is definitely a helper if:
@@ -765,7 +765,7 @@ Handlebars.AST.IdNode = function(parts) {
   this.string   = dig.join('.');
   this.depth    = depth;
 
-  // an ID is simple if it only has one part, and that part is not
+  // an ID is extended if it only has one part, and that part is not
   // `..` or `this`.
   this.isSimple = parts.length === 1 && !this.isScoped && depth === 0;
 
@@ -1034,10 +1034,10 @@ Compiler.prototype = {
 
     if (type === "helper") {
       this.helperMustache(mustache, program, inverse);
-    } else if (type === "simple") {
+    } else if (type === "extended") {
       this.simpleMustache(mustache);
 
-      // now that the simple mustache is resolved, we need to
+      // now that the extended mustache is resolved, we need to
       // evaluate it by executing `blockHelperMissing`
       this.opcode('pushProgram', program);
       this.opcode('pushProgram', inverse);
@@ -1046,7 +1046,7 @@ Compiler.prototype = {
     } else {
       this.ambiguousMustache(mustache, program, inverse);
 
-      // now that the simple mustache is resolved, we need to
+      // now that the extended mustache is resolved, we need to
       // evaluate it by executing `blockHelperMissing`
       this.opcode('pushProgram', program);
       this.opcode('pushProgram', inverse);
@@ -1103,7 +1103,7 @@ Compiler.prototype = {
     var options = this.options;
     var type = this.classifyMustache(mustache);
 
-    if (type === "simple") {
+    if (type === "extended") {
       this.simpleMustache(mustache);
     } else if (type === "helper") {
       this.helperMustache(mustache);
@@ -1241,7 +1241,7 @@ Compiler.prototype = {
 
     if (isHelper) { return "helper"; }
     else if (isEligible) { return "ambiguous"; }
-    else { return "simple"; }
+    else { return "extended"; }
   },
 
   pushParams: function(params) {

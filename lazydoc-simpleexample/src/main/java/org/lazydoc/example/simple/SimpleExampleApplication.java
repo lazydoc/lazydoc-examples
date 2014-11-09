@@ -1,8 +1,8 @@
-package org.lazydoc.example.extended;
+package org.lazydoc.example.simple;
 
-import org.lazydoc.example.extended.config.DispatcherConfig;
-import org.lazydoc.example.extended.config.PersistenceConfig;
-import org.lazydoc.example.extended.config.WebInitializer;
+import org.lazydoc.example.simple.config.DispatcherConfig;
+import org.lazydoc.example.simple.config.PersistenceConfig;
+import org.lazydoc.example.simple.config.WebInitializer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
@@ -13,9 +13,11 @@ import org.springframework.core.env.Environment;
 
 @Configuration
 @EnableAutoConfiguration
-@ComponentScan(basePackages = "org.lazydoc.example.extended")
+@ComponentScan(basePackages = SimpleExampleApplication.PACKAGE_NAME)
 @Import({ WebInitializer.class, DispatcherConfig.class, PersistenceConfig.class })
-public class ExampleApplication {
+public class SimpleExampleApplication {
+
+	public static final String PACKAGE_NAME = "org.lazydoc.example.simple";
 
 	@Autowired
 	private Environment env;
@@ -29,6 +31,6 @@ public class ExampleApplication {
 	}
 
 	public static void main(String[] args) {
-		SpringApplication.run(ExampleApplication.class, args);
+		SpringApplication.run(SimpleExampleApplication.class, args);
 	}
 }

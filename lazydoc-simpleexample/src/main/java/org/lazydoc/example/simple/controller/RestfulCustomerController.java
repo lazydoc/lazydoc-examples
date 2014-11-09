@@ -1,11 +1,7 @@
-package org.lazydoc.example.extended.controller;
+package org.lazydoc.example.simple.controller;
 
-import org.lazydoc.annotation.DomainDescription;
-import org.lazydoc.annotation.OperationDescription;
-import org.lazydoc.annotation.Parameter;
-import org.lazydoc.annotation.ParameterDescription;
-import org.lazydoc.example.extended.entity.Customer;
-import org.lazydoc.example.extended.repository.CustomerRepository;
+import org.lazydoc.example.simple.entity.Customer;
+import org.lazydoc.example.simple.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
