@@ -25,25 +25,42 @@
             </plugin>
 
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>exec-maven-plugin</artifactId>
-                <version>1.1.1</version>
+                <groupId>org.lazydoc</groupId>
+                <artifactId>lazydoc-plugin</artifactId>
+                <version>1.0.0-SNAPSHOT</version>
                 <executions>
                     <execution>
-                        <phase>compile</phase>
                         <goals>
-                            <goal>java</goal>
+                            <goal>document</goal>
                         </goals>
-                        <configuration>
-                            <includeProjectDependencies>true</includeProjectDependencies>
-                            <mainClass>org.lazydoc.example.extended.doc.ExampleDocParser</mainClass>
-                            <arguments>
-                                <argument>${project.basedir}/</argument>
-                            </arguments>
-                        </configuration>
+                        <phase>compile</phase>
                     </execution>
                 </executions>
+                <configuration>
+                    <config>
+                        <packageToSearchForControllers>org.lazydoc.example</packageToSearchForControllers>
+                    </config>
+                    <printerConfigs>
+                        <printerConfig>
+                            <className>org.lazydoc.printer.SwaggerDocumentationPrinter</className>
+                            <outputPath>${project.parent.basedir}/lazydoc-swaggerexample/src/main/webapp/WEB-INF/jsp/swagger/</outputPath>
+                            <params>
+                                <swagger.basepath>http://localhost:9999/lazydoc-spring</swagger.basepath>
+                                <swagger.views.properties.filename>${project.parent.basedir}/lazydoc-swaggerexample/src/main/resources/views.properties</swagger.views.properties.filename>
+                                <swagger.directory.name>api</swagger.directory.name>
+                            </params>
+                        </printerConfig>
+                        <printerConfig>
+                            <className>org.lazydoc.printer.DocBookDocumentationPrinter</className>
+                            <outputPath>${project.parent.basedir}/lazydoc-docbookexample/src/docbkx/lazydoc/</outputPath>
+                            <params>
+                                <docbook.filename>lazydoc.xml</docbook.filename>
+                            </params>
+                        </printerConfig>
+                    </printerConfigs>
+                </configuration>
             </plugin>
+
 
         </plugins>
     </build>
